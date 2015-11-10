@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="../../js/extend/zTree_v3.5/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <script src="../../js/extend/jquery_1.11.3.min.js"></script>
+    <script src="../../js/extend/jquery.slimscroll.min.js"></script>
+    <script src="../../js/extend/zTree_v3.5/js/jquery.ztree.all-3.5.min.js"></script>
+    <script src="config.js"></script>
+    <style>
+        .tree-container {
+            height: 502px;
+            width: 300px;
+            background: url(img/center_docu.png) repeat-y;
+        }
+
+        .toc-container {
+            height: 400px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-right: 10px;
+        }
+
+        .toc .button.chk {
+            position: absolute;
+            right: 10px;
+            margin-top: 5px !important;
+            z-index: 2;
+        }
+
+        .toc * {
+            font-family: 'Microsoft YaHei';
+            font-size: 15px;
+        }
+
+        .toc a span {
+            background: white;
+        }
+
+        .ztree li a.level0 span {
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .toc span {
+            line-height: 24px !important;
+        }
+
+        .toc .button.ico_docu, .toc .button.ico_open, .toc .button.ico_close {
+            margin-top: 6px;
+        }
+
+        .ztree li {
+            line-height: 24px !important;
+            position: relative;
+        }
+
+            .ztree li a {
+                width: 100%;
+                height: 24px;
+                padding-top: 0px;
+                padding-left: 3px;
+            }
+
+
+                .ztree li a:hover {
+                    text-decoration: none;
+                    background: #0092da;
+                    color: white;
+                }
+
+                    .ztree li a:hover span {
+                        background: #0092da;
+                    }
+
+                .ztree li a.curSelectedNode {
+                    background-color: #0092da;
+                    opacity: 1;
+                    border: 0;
+                    height: 24px;
+                    color: white;
+                }
+
+                    .ztree li a.curSelectedNode .button.ico_docu {
+                        background: url(img/layer1.png) !important;
+                    }
+
+                    .ztree li a.curSelectedNode span {
+                        background: #0092da;
+                    }
+
+        .button.switch.center_open, .button.switch.bottom_open, .button.switch.roots_open, .button.switch.noline_open {
+            background: white url(img/close.png);
+            background-position: 0 0 !important;
+            margin-bottom: 4px;
+        }
+
+        .button.switch.center_close, .button.switch.bottom_close, .button.switch.roots_close, .button.switch.noline_close {
+            background: white url(img/open.png);
+            background-position: 0 0 !important;
+            margin-bottom: 4px;
+        }
+
+
+        a:hover .button.ico_docu {
+            background: url(img/layer1.png) !important;
+        }
+
+        .slimScrollBar, .slimScrollRail {
+            border-radius: 0 !important;
+            width: 10px !important;
+        }
+
+        .slimScrollBar {
+            background: rgba(128, 128, 128, 0.60) !important;
+            opacity: 1 !important;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        $(function () {
+            function showIconForTree(treeId, treeNode) {
+                return treeNode.layerUrl;
+            };
+            var setting = {
+                view: {
+                    showLine: false,
+                    showIcon: showIconForTree,
+                    selectedMulti: false,
+                    dblClickExpand: true
+                },
+                callback: {
+                    onExpand: scrollInit,
+                    onCollapse: scrollInit
+                },
+                check: {
+                    enable: true
+                }
+            };
+            var treeObj = $(".toc");
+            $.fn.zTree.init(treeObj, setting, mapLayers);
+
+            var tocContainer = $(".toc-container");
+            function scrollInit() {
+                tocContainer.slimScroll({
+                    height: $(".toc-container").height(),
+                    //railVisible: true,
+                    alwaysVisible: true
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="tree-container">
+        <div style="position: absolute; top: 0; font-family: 'Microsoft YaHei'; height: 30px; border-bottom: 2px  #0092da solid; color: #0092da; line-height: 30px; position: relative;">
+            <div style="float: left; height: 18px; width: 18px; margin: 5px; background: #0092da;"></div>
+            <div style="float: left; height: 30px; line-height: 30px; font-weight: 700;">分类数据</div>
+        </div>
+        <div class="toc-container">
+            <ul class="toc ztree"></ul>
+        </div>
+    </div>
+</body>
+</html>

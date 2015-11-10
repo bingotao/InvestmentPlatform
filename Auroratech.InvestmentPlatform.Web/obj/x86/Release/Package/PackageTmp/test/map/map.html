@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script>
+        djConfig = {
+            parseOnLoad: false,
+            isDebug: false,
+            locale: 'zh-cn',
+            serverIP: '127.0.0.1/3.13compact',
+            path: { extras: location.pathname.replace(/\/[^/]+$/, "") + "/../extras" }
+            //path: { extras: "../zspt/test/extras" }
+        };
+        globalIP = '127.0.0.1';
+    </script>
+    <link href="http://127.0.0.1/3.13compact/esri/css/esri.css" rel="stylesheet" />
+    <!--    <link href="../../js/extend/jquery_easyui_1.4.2/themes/default/slider.css" rel="stylesheet" />-->
+    <link href="../../js/walkinfo/mapNav/css/mapNav.css" rel="stylesheet" />
+    <link href="../../css/mapstyle.css" rel="stylesheet" />
+    <script type="text/javascript" src="http://127.0.0.1/3.13compact/init.js"></script>
+    <script src="../../js/extend/jquery_1.11.3.min.js"></script>
+    <script src="../../js/walkinfo/mapNav/js/mapNav.js"></script>
+    <!--    <script src="../../js/extend/jquery_easyui_1.4.2/jquery.easyui.min.js"></script>-->
+    <script src="../../js/walkinfo/base/giscom.js"></script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        * {
+            font-family: 'Microsoft YaHei';
+        }
+
+        .map {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+        }
+
+        .layer-manager {
+            position: fixed;
+            width: 300px;
+            height: 400px;
+            z-index: 9;
+            border: 1px #666 solid;
+            top: 20px;
+            right: 20px;
+            background: white;
+        }
+
+        .printer, .addlegend {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            height: 30px;
+            line-height: 30px;
+            width: 80px;
+            border-radius: 5px;
+            background: #0094ff;
+            z-index: 9;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .addlegend {
+            top: 60px;
+        }
+
+        .legend {
+            z-index: 9;
+            position: absolute;
+            top: 100px;
+            left: 20px;
+            background: white;
+            width: 200px;
+            height: 200px;
+        }
+
+        #legendDiv {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <script>
+
+        var map = null;
+        $(function () {
+            require(['extras/SayHello'], function (Say) {
+                var say = new Say();
+                say.say();
+                say.setContent();
+                say.say();
+                say.setContent('帅哥你好！');
+                say.say();
+            });
+
+            /*
+            giscom.initMap('map', function (myMap) {
+                map = myMap;
+                giscom.addLayer('http://127.0.0.1:6080/arcgis/rest/services/xzq/wx_xzq/MapServer', giscom.layerTypes.D);
+                giscom.addLayer('http://127.0.0.1:6080/arcgis/rest/services/XQ_GYYD/MapServer', giscom.layerTypes.D);
+            });
+
+            function mapPrint() {
+                require(['esri/tasks/PrintTemplate', 'esri/tasks/PrintParameters', 'esri/tasks/PrintTask'], function (PrintTemplate, PrintParameters, PrintTask) {
+                    var pUrl = 'http://127.0.0.1:6080/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task';
+                    var pTask = new PrintTask(pUrl);
+
+                    var template = new PrintTemplate();
+                    var $map = $('.map');
+                    template.exportOptions = {
+                        width: $map.width(),
+                        height: $map.height(),
+                        dpi: 96
+                    };
+                    template.format = "png8";
+                    template.layout = "MAP_ONLY";
+
+                    template.layoutOptions = { titleText: 'XXXX项目', customTextElements: [{ zl: 'XXXX路168号' }] };
+                    template.preserveScale = false;
+
+                    var params = new PrintParameters();
+                    params.map = map;
+                    params.template = template;
+
+                    pTask.execute(params, function (r) {
+                        var a = $('<a href="' + r.url + '" target="_blank"><span>地图输出</span></a>');
+                        a.css('display', 'none');
+                        a.prependTo($('body'));
+                        a.find('span').click();
+                    }, function (e) {
+                        var s = e;
+                    });
+                });
+            }
+            function addLegend() {
+                require(['esri/dijit/Legend'], function (Legend) {
+                    var layer = map.getLayer(map.layerIds[1]);
+                    var legend = new Legend({
+                        map: map,
+                        respectCurrentMapScale: false,
+                        layerInfos: [
+                          {
+                              layer: layer, title: "图例"
+                          }
+                        ]
+                    }, "legendDiv");
+                    legend.startup();
+                });
+            }
+            $('.printer').click(function () {
+                mapPrint();
+            });
+
+            $('.addlegend').click(function () {
+                addLegend();
+            });*/
+        });
+    </script>
+</head>
+<body class="claro">
+    <div class="printer">地图输出</div>
+    <div class="addlegend">添加图例</div>
+    <div class="legend">
+        <div id="legendDiv"></div>
+    </div>
+    <div id="map" class="map">
+        <div id="divMapNav" style="position: fixed; z-index: 9; top: 100px; left: 20px;"></div>
+    </div>
+</body>
+</html>

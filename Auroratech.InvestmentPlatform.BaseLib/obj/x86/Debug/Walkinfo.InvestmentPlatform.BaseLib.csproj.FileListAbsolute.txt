@@ -1,0 +1,7 @@
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform.BaseLib\bin\x86\Debug\Walkinfo.InvestmentPlatform.BaseLib.dll
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform.BaseLib\bin\x86\Debug\Walkinfo.InvestmentPlatform.BaseLib.pdb
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform.BaseLib\bin\x86\Debug\Walkinfo.DataClient.dll
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform.Web\dll\Walkinfo.InvestmentPlatform.BaseLib.dll
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform.Web\dll\Walkinfo.InvestmentPlatform.BaseLib.pdb
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform.BaseLib\obj\x86\Debug\Walkinfo.InvestmentPlatform.BaseLib.dll
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform.BaseLib\obj\x86\Debug\Walkinfo.InvestmentPlatform.BaseLib.pdb

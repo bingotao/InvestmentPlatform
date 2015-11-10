@@ -1,0 +1,99 @@
+﻿<style>
+    .zsdk .btn {
+        clear: both;
+    }
+
+    .zsdk input[type='radio'] {
+        height: 20px;
+        width: 20px;
+    }
+
+    .zsdk .land-type {
+        display: none;
+        margin-left: 0px;
+        margin-top: 10px;
+        height: 20px;
+    }
+
+        .zsdk .land-type * {
+            margin: 0 5px;
+            float: left;
+            cursor: pointer;
+            font-size: 14px;
+        }
+</style>
+<div class="zsdk-panel z1">
+    <table>
+        <!-- <tr>
+            <td>项目名称：</td>
+            <td>
+                <input class="field" data-field="yddw" type="text" />
+            </td>
+        </tr>
+        <tr>
+            <td>土地坐落：</td>
+            <td>
+                <input class="field" data-field="tdzl" type="text" /></td>
+        </tr>-->
+        <tr>
+            <td>地块编号：</td>
+            <td>
+                <input class="field" data-field="dkbh" type="text" /></td>
+        </tr>
+        <tr>
+            <td>地块面积：</td>
+            <td>
+                <input class="field" data-field="min-tdmj" type="text" style="width: 40px" />
+                亩-
+                        <input type="text" class="field" data-field="max-tdmj" style="width: 40px" />
+                亩
+            </td>
+        </tr>
+        <!--<tr>
+            <td>是否报批：</td>
+            <td>
+                <div class="dropdown sfybp" style="z-index: 9;">
+                    <div class="pq-text field" data-field="sfybp"></div>
+                    <ul class="pq-dropdown">
+                    </ul>
+                </div>
+            </td>
+        </tr>-->
+        <!--<tr>
+            <td>所属板块：</td>
+            <td>
+                <div class="dropdown pqs">
+                    <div class="pq-text" data-field="pqdm"></div>
+                    <ul class="pq-dropdown">
+                    </ul>
+                </div>
+            </td>
+        </tr>-->
+    </table>
+    <div class="land-type">
+        <input id="land_type_sy" data-where="" type="radio" name="landtype" checked /><label for="land_type_sy">所有</label>
+        <input id="land_type_wcrdk" data-where=" and layer='未出让用地'" type="radio" name="landtype" /><label for="land_type_wcrdk">未出让地块</label>
+        <input id="land_type_yhhx" data-where=" and layer='预划红线'" type="radio" name="landtype" /><label for="land_type_yhhx">预划红线</label>
+    </div>
+    <div class="app-slider"></div>
+    <div class="btns">
+        <div class="query">查 询</div>
+        <!--<div class="query-results-btn mytip" data-tip="查看查询结果"></div>-->
+    </div>
+    <!-- <div class="app-slider"></div>
+    <div class="query-tools">
+        <div class="query-tools-point mytip" data-tip="点查询"></div>
+        <div class="query-tools-polygon mytip" data-tip="多边形查询"></div>
+        <div class="query-tools-drop mytip" data-tip="清除图形"></div>
+    </div>-->
+</div>
+<!--<div class="query-result">
+    <div class="query-result-title">
+        <div class="query-results-btn mytip" data-tip="返回查询界面"></div>
+        查询结果
+                <div class="query-results-count"></div>
+    </div>
+    <div class="app-slider"></div>
+    <div class="query-results">
+    </div>
+</div>-->

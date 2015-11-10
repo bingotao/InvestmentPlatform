@@ -1,0 +1,31 @@
+﻿namespace Auroratech.DataClient
+{
+  public enum SQLServerDataType
+  {
+    Bigint,
+    Int,
+    Smallint,
+    Tinyint,
+    Bit,
+    Decimal,
+    Numeric,
+    Money,
+    Smallmoney,
+    Float,
+    Real,
+    Datetime,
+    Smalldatetime,
+    Char,
+    Varchar,
+    Text,
+    Nchar,
+    Nvarchar,
+    Ntext,
+    Binary,
+    Varbinary,
+    Image,
+    Timestamp,
+    Uniqueidentifier,
+    Variant,
+  }
+}

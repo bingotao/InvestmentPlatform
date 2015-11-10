@@ -1,0 +1,290 @@
+﻿.esriOverviewMap.ovwBR .ovwContainer {
+    border: 0 !important;
+    background-color: #0092DA;
+}
+
+.esriScalebarLine {
+    border-color: black !important;
+}
+
+.esriScalebarLabel {
+    color: black !important;
+}
+
+.map .tooltip {
+    width: auto !important;
+    height: 20px !important;
+    padding: 10px !important;
+    line-height: 20px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    background-color: rgba(0, 113, 188, 0.80) !important;
+    color: white;
+    border: 0 !important;
+    border-radius: 5px !important;
+    font-family: 'Microsoft YaHei' !important;
+}
+
+.basemap-toggle {
+    position: absolute;
+    height: 44px;
+    width: 44px;
+    opacity: 0.8;
+    border: 1px #0092DA solid;
+    transition: all 0.3s;
+    cursor: pointer;
+    z-index: 9;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+    .basemap-toggle:hover {
+        opacity: 1;
+    }
+
+        .basemap-toggle:hover .basemap-name {
+            opacity: 1;
+        }
+
+.basemap-img {
+    height: 100%;
+    width: 100%;
+    background: red;
+}
+
+.basemap-name {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 146, 218, 0.56);
+    color: white;
+    font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    width: 100%;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.layer-title {
+    margin: 10px 0;
+    text-indent: 20px;
+}
+
+
+.layer-manager .slider-disabled, .opacity-tip .slider-disabled {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.layer-manager .slider-h, .opacity-tip .slider-h {
+    height: 22px;
+}
+
+.layer-manager .slider-v, .opacity-tip .slider-v {
+    width: 22px;
+}
+
+.layer-manager .slider-inner, .opacity-tip .slider-inner {
+    position: relative;
+    height: 6px;
+    top: 7px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0px;
+}
+
+.layer-manager .slider-handle, .opacity-tip .slider-handle {
+    position: absolute;
+    display: block;
+    outline: none;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+}
+
+.layer-manager .slider-tip, .opacity-tip .slider-tip {
+    position: absolute;
+    display: inline-block;
+    line-height: 12px;
+    font-size: 12px;
+    white-space: nowrap;
+    top: -22px;
+}
+
+.layer-manager .slider-rule, .opacity-tip .slider-rule {
+    position: relative;
+    top: 15px;
+}
+
+    .layer-manager .slider-rule span, .opacity-tip .slider-rule span {
+        position: absolute;
+        display: inline-block;
+        font-size: 0;
+        height: 5px;
+        border-width: 0 0 0 1px;
+        border-style: solid;
+    }
+
+.layer-manager .slider-rulelabel, .opacity-tip .slider-rulelabel {
+    position: relative;
+    top: 20px;
+}
+
+    .layer-manager .slider-rulelabel span {
+        position: absolute;
+        display: inline-block;
+        font-size: 12px;
+    }
+
+.layer-manager .slider-v .layer-manager .slider-inner, .opacity-tip .slider-v .layer-manager .slider-inner {
+    width: 6px;
+    left: 7px;
+    top: 0;
+    float: left;
+}
+
+.layer-manager .slider-v .layer-manager .slider-handle, .opacity-tip .slider-v .layer-manager .slider-handle {
+    left: 50%;
+    margin-top: -10px;
+}
+
+.layer-manager .slider-v .layer-manager .slider-tip, .opacity-tip .slider-v .layer-manager .slider-tip {
+    left: -10px;
+    margin-top: -6px;
+}
+
+.layer-manager .slider-v .layer-manager .slider-rule, .opacity-tip .slider-v .layer-manager .slider-rule {
+    float: left;
+    top: 0;
+    left: 16px;
+}
+
+    .layer-manager .slider-v .layer-manager .slider-rule span, .opacity-tip .slider-v .layer-manager .slider-rule span {
+        width: 5px;
+        height: auto;
+        border-left: 0;
+        border-width: 1px 0 0 0;
+        border-style: solid;
+    }
+
+.layer-manager .slider-v .layer-manager .slider-rulelabel, .opacity-tip .slider-v .layer-manager .slider-rulelabel {
+    float: left;
+    top: 0;
+    left: 23px;
+}
+
+.layer-manager .slider-handle, .opacity-tip .slider-handle {
+    background: url(img/nav-panel.png) -71px -69px no-repeat;
+}
+
+.layer-manager .slider-inner, .opacity-tip .slider-inner {
+    border-color: #ddd;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.layer-manager .slider-rule span, .opacity-tip .slider-rule span, .opacity-tip .slider-rule span, .opacity-tip .slider-rule span {
+    border-color: #aaa;
+}
+
+.layer-manager .slider-rulelabel span, .opacity-tip .slider-rulelabel span {
+    color: #444;
+    display: block;
+    opacity: 0;
+    transition: 0.2s ease-in;
+    transition-delay: 0.2s;
+}
+
+.layer-manager .slider-rulelabel span, .opacity-tip .slider-rulelabel span { /*display: none;*/
+    height: 20px;
+    line-height: 20px;
+    min-width: 45px;
+    width: auto;
+    text-indent: 10px;
+    cursor: pointer;
+    padding-left: 5px;
+    background: url(img/nav-panel.png) -5px -2px no-repeat;
+    color: white;
+}
+
+
+.layer-manager .slider.slider-h, .opacity-tip .slider.slider-h {
+    margin: 20px auto;
+}
+
+.layer-manager .slider-inner, .opacity-tip .slider-inner {
+    border-color: #0092DA;
+    background: #0092DA;
+    border-radius: 5px;
+}
+
+.layer-manager .slider-tip, .opacity-tip .slider-tip {
+    font-weight: 700;
+    font-size: 14px;
+    color: #0092DA;
+}
+
+.layer-manager .slider-handle, .opacity-tip .slider-handle {
+    background: url(../images/slider.png);
+}
+
+.esriOverviewMap.ovwTL .ovwShow, .esriOverviewMap.ovwBR .ovwHide {
+    background: url("../pages/css/img/yy-close.png") 0px 0px !important;
+}
+
+.esriOverviewMap.ovwBR .ovwShow, .esriOverviewMap.ovwTL .ovwHide {
+    background: url("../pages/css/img/yy-open.png") 0px 0px !important;
+}
+
+.ct-map-overview {
+    height: 240px !important;
+    width: 350px !important;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transition: 0.5s;
+    z-index: 10;
+    border-top: 2px #0092DA solid;
+    border-left: 2px #0092DA solid;
+    background: #0092DA;
+}
+
+    .ct-map-overview.ct-map-overview-close {
+        right: -334px;
+        bottom: -224px;
+    }
+
+        .ct-map-overview.ct-map-overview-close .ct-map-overview-btn {
+            background: url(../pages/css/img/yy-open1.png);
+        }
+
+.ct-map-overview-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+    z-index: 9;
+}
+
+.ct-map-overview-btn {
+    background: url(../pages/css/img/yy-close1.png);
+}
+
+.opacity-btn {
+    height: 14px;
+    width: 14px;
+    background: url(../pages/css/img/setOpacity.png);
+    display: block;
+    position: absolute;
+    right: 32px;
+    top: 5px;
+}
+
+.map .tooltip {
+    display: block;
+}

@@ -1,0 +1,10 @@
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.StaticLib\bin\x86\Debug\Auroratech.StaticLib.dll
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.StaticLib\bin\x86\Debug\Auroratech.StaticLib.pdb
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.StaticLib\bin\x86\Debug\Newtonsoft.Json.dll
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.StaticLib\bin\x86\Debug\Newtonsoft.Json.xml
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.InvestmentPlatform.Web\dll\Auroratech.StaticLib.dll
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.InvestmentPlatform.Web\dll\Auroratech.StaticLib.pdb
+C:\bin\Release\Auroratech.StaticLib.dll
+C:\bin\Release\Auroratech.StaticLib.pdb
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.StaticLib\obj\x86\Debug\Auroratech.StaticLib.dll
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.StaticLib\obj\x86\Debug\Auroratech.StaticLib.pdb

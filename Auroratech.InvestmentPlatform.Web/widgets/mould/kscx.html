@@ -1,0 +1,207 @@
+﻿<style>
+    .app {
+        height: 500px;
+        width: 320px;
+        box-sizing: border-box;
+        padding: 10px;
+        border: 1px #333 solid;
+        font-family: 'Microsoft YaHei';
+    }
+
+    .kscx .region-container2, .kscx .landtype-container {
+        width: 100%;
+        position: relative;
+        -webkit-transition: 0.5s;
+        -moz-transition: 0.5s;
+        -o-transition: 0.5s;
+        -ms-transition: 0.5s;
+        transition: 0.5s;
+        overflow: hidden;
+        border-bottom: 1px #0092da solid;
+        padding-top: 10px;
+    }
+
+    .kscx .region-container2 {
+        height: 120px;
+        left: 0;
+        background: none;
+    }
+
+    .kscx .landtype-container {
+        height: 90px;
+    }
+
+        .kscx .region-container2.close, .kscx .landtype-container.close {
+            height: 0;
+            border: 0;
+            padding: 0;
+        }
+
+        .kscx .region-container2 div, .kscx .landtype-container div {
+            width: 100%;
+            float: left;
+            height: 30px;
+            text-align: center;
+        }
+
+            .kscx .region-container2 div label, .kscx .landtype-container div label {
+                cursor: pointer;
+                color: #313131;
+                font-size: 15px;
+            }
+
+            .kscx .region-container2 div input, .kscx .landtype-container div input {
+                height: 16px;
+                width: 16px;
+                margin: 3px 5px 0 45px;
+            }
+
+            .kscx .region-container2 div *, .kscx .landtype-container div * {
+                float: left;
+            }
+
+    .kscx .region-title, .kscx .area, .kscx .landtype-title {
+        text-align: left;
+        height: 50px;
+        line-height: 50px;
+        border-top: 1px solid #0092da;
+        border-bottom: 1px solid #0092da;
+        color: white;
+        background: #0092da url(css/img/arrow-up_0e0acf1.png) no-repeat 280px 22px;
+    }
+
+    .kscx .region-title, .kscx .landtype-title {
+        cursor: pointer;
+        margin-top: -1px;
+    }
+
+    .kscx .area {
+        background: none;
+        margin-top: -1px;
+        height: 130px;
+        color: #313131;
+        border-top: 0;
+    }
+
+    .kscx .region-title.close, .kscx .landtype-title.close {
+        color: #313131;
+        background: white url(../pages/css/img/arrow-down_fd9904e.png) no-repeat 280px 22px;
+    }
+
+    .kscx .region-place2, .kscx .landtype-place {
+        float: right;
+        margin-right: 30px;
+    }
+
+    .kscx .area-slider {
+        height: 50px;
+    }
+
+    .kscx .query {
+        width: 80px;
+        background: #0092da;
+        color: white;
+        margin: 10px auto;
+        height: 30px;
+        line-height: 30px;
+        font-weight: 700;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 15px;
+    }
+
+    .inrule {
+        height: 100%;
+        border: 1px solid #f12626;
+        margin-top: -1px;
+        background: #f12626;
+        top: 0;
+    }
+
+    .kscx .opacity-tip .slider-handle {
+        background: url(css/img/innerRule.png);
+    }
+
+    .kscx .slider-tip:nth-child(2) {
+        text-indent: -25px;
+    }
+
+    .kscx .slider-tip:nth-child(4) {
+        text-indent: 25px;
+    }
+
+    .kscx .opacity-tip .slider-rulelabel span {
+        opacity: 1;
+        color: #313131;
+        background: none;
+    }
+
+        .kscx .opacity-tip .slider-rulelabel span:nth-child(1) {
+            text-indent: 17px;
+        }
+
+    .kscx .opacity-tip {
+        border: 0;
+        position: static;
+        margin-top: 0;
+    }
+</style>
+<div style="height: 100%; width: 100%;">
+    <div class="landtype-title close" style="margin-top: 10px; display: none;">
+        &nbsp;&nbsp;&nbsp;&nbsp;地块类型<div class="landtype-place"></div>
+    </div>
+    <div style="display: none;" class="landtype-container close">
+        <div>
+            <label style="color: #f12626; font-weight: 700;">
+                <input type="checkbox" data-mc="所有地块" data-type="all" />所有地块</label>
+            <label>
+                <input type="checkbox" data-mc="闲置厂房" data-type="xzcf" />闲置厂房</label>
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" data-mc="规划地块" data-type="zsdk" />规划地块</label>
+            <label>
+                <input type="checkbox" data-mc="批而未供" data-type="pewg" />批而未供</label>
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" data-mc="供而未用" data-type="gewy" />供而未用</label>
+            <label>
+                <input type="checkbox" data-mc="用而不足" data-type="yebz" />用而不足</label>
+        </div>
+    </div>
+    <!--<div class="region-title close">
+        &nbsp;&nbsp;&nbsp;&nbsp;区域<div class="region-place2"></div>
+    </div>
+    <div class="region-container2 close">
+        <div>
+            <label>
+                <input type="checkbox" data-mc="全 区" />全 区</label>
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" data-mc="旺庄街道" />旺庄街道</label>
+            <label>
+                <input type="checkbox" data-mc="硕放街道" />硕放街道</label>
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" data-mc="江溪街道" />江溪街道</label>
+            <label>
+                <input type="checkbox" data-mc="新安街道" />新安街道</label>
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" data-mc="梅村街道" />梅村街道</label>
+            <label>
+                <input type="checkbox" data-mc="鸿山街道" />鸿山街道</label>
+        </div>
+    </div>-->
+    <div class="area">
+        &nbsp;&nbsp;&nbsp;&nbsp;面积设置（单位：亩）
+            <div class="area-slider opacity-tip">
+                <div class="area-slider-obj" style="height: 100%; width: 100%;"></div>
+            </div>
+    </div>
+    <div class="query">查 询</div>
+</div>

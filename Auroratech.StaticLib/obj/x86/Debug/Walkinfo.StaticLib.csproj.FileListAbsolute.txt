@@ -1,0 +1,6 @@
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\StaticLib\obj\x86\Debug\StaticLib.dll
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\StaticLib\obj\x86\Debug\StaticLib.pdb
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\StaticLib\bin\x86\Debug\StaticLib.dll
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\StaticLib\bin\x86\Debug\StaticLib.pdb
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\StaticLib\bin\x86\Debug\Newtonsoft.Json.dll
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\StaticLib\bin\x86\Debug\Newtonsoft.Json.xml

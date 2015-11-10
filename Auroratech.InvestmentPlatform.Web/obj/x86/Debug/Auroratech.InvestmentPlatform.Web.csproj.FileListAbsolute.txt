@@ -1,0 +1,14 @@
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.InvestmentPlatform.Web\bin\Auroratech.InvestmentPlatform.Web.dll
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.InvestmentPlatform.Web\bin\Auroratech.InvestmentPlatform.Web.pdb
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.InvestmentPlatform.Web\bin\Auroratech.DataClient.dll
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.InvestmentPlatform.Web\bin\Auroratech.InvestmentPlatform.BaseLib.dll
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.InvestmentPlatform.Web\bin\Auroratech.StaticLib.dll
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.InvestmentPlatform.Web\bin\Newtonsoft.Json.dll
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.InvestmentPlatform.Web\bin\NPOI.dll
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.InvestmentPlatform.Web\bin\Auroratech.DataClient.pdb
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.InvestmentPlatform.Web\bin\Auroratech.InvestmentPlatform.BaseLib.pdb
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.InvestmentPlatform.Web\bin\Auroratech.StaticLib.pdb
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.InvestmentPlatform.Web\bin\Newtonsoft.Json.xml
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.InvestmentPlatform.Web\obj\x86\Debug\Auroratech.InvestmentPlatform.Web.csprojResolveAssemblyReference.cache
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.InvestmentPlatform.Web\obj\x86\Debug\Auroratech.InvestmentPlatform.Web.dll
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.InvestmentPlatform.Web\obj\x86\Debug\Auroratech.InvestmentPlatform.Web.pdb

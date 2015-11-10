@@ -1,0 +1,134 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterBase.master.cs" Inherits="Walkinfo.InvestmentPlatform.masterpage.MasterBase" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无锡新区工业可用地块管理平台</title>
+
+    <%-- 通用css  以及  通用 js --%>
+    <link href="../css/normalize.css" rel="stylesheet" />
+    <script src="../js/extend/jquery_1.11.3.min.js"></script>
+    <style>
+        * {
+            font-family: 'Microsoft YaHei';
+        }
+
+        .head {
+            height: 60px;
+            background: #0092DA;
+            color: white;
+        }
+
+            .head > div {
+                float: left;
+                height: 100%;
+                line-height: 60px;
+                text-align: center;
+            }
+
+        .nav li {
+            float: left;
+            text-align: center;
+            color: white;
+            font-size: 18px;
+            width: 180px;
+            transition: 0.3s ease-out;
+        }
+
+            .nav li:hover {
+                /*background: #6baef7;*/
+                box-shadow: #65bde9 0 60px inset;
+                -webkit-box-shadow: #65bde9 0 60px inset;
+            }
+
+        .nav-selected {
+            font-weight: 700;
+            background: #0071bc;
+            padding: 0 10px;
+        }
+
+        .nav li a::after, .nav li a::before, .nav li a {
+            display: block;
+            color: white;
+        }
+
+        .logo {
+            width: 500px;
+            background: url(../images/logo.png) no-repeat;
+        }
+
+        /*.title {
+            width: 200px;
+        }*/
+
+        .head-tools {
+            position: absolute;
+            right: 30px;
+            height: 34px !important;
+            top: 26px;
+            background: #0071bc;
+        }
+
+            .head-tools > div {
+                float: left;
+                height: 24px;
+                line-height: 24px;
+                padding: 5px 8px;
+                font-size: 14px;
+                font-weight: 700;
+                cursor: pointer;
+                transition: 0.5s;
+            }
+
+        .head-tool-item:hover {
+            /*background: #6baef7;*/
+            box-shadow: #65bde9 0 60px inset;
+            -webkit-box-shadow: #65bde9 0 60px inset;
+        }
+    </style>
+    <script type="text/javascript">
+        //var navId = "<%=navId%>";
+        //$(function () {
+        //   navId = navId ? navId : "nav01";
+        //   var sCls = 'nav-selected';
+        //   var $navLis = $('.nav li');
+        //   $navLis.removeClass(sCls);
+        //  $("#" + navId).addClass(sCls);
+        //});
+    </script>
+    <%-- css样式占位 --%>
+    <asp:ContentPlaceHolder ID="StyleFilePlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+    <%-- js占位 --%>
+    <asp:ContentPlaceHolder ID="ScriptFilePlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <%-- 隐藏字段占位 --%>
+    <asp:ContentPlaceHolder ID="ContentHiddenField" runat="server">
+    </asp:ContentPlaceHolder>
+    <div class="head">
+        <div class="logo"></div>
+        <%--<div class="title">title</div>--%>
+        <%-- <div class="nav">
+            <ul>
+                <li><a id="nav01" href="FrontPage.aspx?navId=nav01">概要</a></li>
+                <li><a id="nav02" href="PlatformMap.aspx?navId=nav02">地图</a></li>
+                <li><a id="nav03" href="Statistic.aspx?navId=nav03">统计</a></li>
+            </ul>
+        </div>--%>
+       
+    </div>
+    <div class="body">
+        <%-- 主页面占位 --%>
+        <asp:ContentPlaceHolder ID="ContentPlace" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+
+    <%-- 页面加载完js占位 --%>
+    <asp:ContentPlaceHolder ID="ScriptContentPlace" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>

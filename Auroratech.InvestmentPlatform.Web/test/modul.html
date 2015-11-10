@@ -1,0 +1,1195 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="../js/extend/jquery_1.11.3.min.js"></script>
+    <style>
+        * {
+            font-family: 'Microsoft YaHei';
+        }
+
+        .test {
+            width: 320px;
+            height: 400px;
+            margin: 10px;
+            border: 1px solid #cbc0c0;
+            float: left;
+        }
+
+        ul, li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .app-item {
+            position: relative;
+            box-sizing: border-box;
+            height: 100%;
+            width: 100%;
+            padding: 10px 10px 0 10px;
+            overflow: hidden;
+        }
+
+            .app-item input {
+                outline: none;
+                border: 2px #0092DA solid;
+                border-radius: 15px;
+                padding: 0 10px;
+                height: 26px;
+                font-size: 16px;
+            }
+
+        .app-slider {
+            border-top: 2px red solid;
+            margin: 20px 0;
+        }
+
+        .measure-setting > div {
+            margin-left: 25px;
+            position: relative;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .measure-panel .dropdown {
+            background: #0092DA url(img/dropdown.png) no-repeat;
+            background-position: 150px 6px;
+            width: 180px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            font-family: 18px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .zsdk-panel .dropdown, .yebz-panel .dropdown, .gydk-panel .dropdown, .dlfx-panel .dropdown, .ghfx-panel .dropdown {
+            position: relative;
+            display: inline-block;
+            height: 30px;
+            line-height: 30px;
+            background: #0092DA url(img/dropdown.png) no-repeat;
+            background-position: 154px 6px;
+            width: 184px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            font-family: 18px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .area-setting {
+            height: 50px;
+        }
+
+            .length-setting > div, .area-setting > div {
+                float: left;
+                height: 30px;
+                line-height: 30px;
+                margin: 10px 0;
+                cursor: pointer;
+            }
+
+        .measure-tools, .query-tools {
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+
+            .measure-tools > div, .query-tools > div {
+                display: inline-block;
+                cursor: pointer;
+                height: 40px;
+                width: 40px;
+                margin: 0 10px;
+            }
+
+        .units-dropdown, .pq-dropdown {
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            display: none;
+            background: rgba(226, 53, 53, 0.8);
+        }
+
+            .units-dropdown li, .pq-dropdown li {
+                height: 30px;
+                line-height: 30px;
+                font-weight: normal;
+                transition: 0.2s ease;
+            }
+
+                .units-dropdown li:hover, .pq-dropdown li:hover {
+                    background: rgba(226, 53, 53, 1);
+                    font-weight: 700;
+                }
+
+        .query-tools-point {
+            background: url(img/point.png);
+        }
+
+        .measure-tools-line {
+            background: url(img/line.png);
+        }
+
+        .measure-tools-polygon, .query-tools-polygon {
+            background: url(img/polygon.png);
+        }
+
+        .measure-tools-drop, .query-tools-drop {
+            background: url(img/drop.png);
+        }
+
+        .measure-results {
+            padding-left: 30px;
+            font-size: 18px;
+            color: #444;
+        }
+
+        .zsdk-panel table, .yebz-panel table, .gydk-panel table, .gyqy-panel table {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+            .zsdk-panel table td, .yebz-panel table td, .gydk-panel table td, .gyqy-panel table td {
+                text-align: center;
+                padding: 5px 0;
+            }
+
+        .zsdk-panel input, .yebz-panel input, .gydk-panel input, .gyqy-panel input {
+            width: 160px;
+        }
+
+        .zsdk-panel .btns, .yebz-panel .btns, .gydk-panel .btns, .gyqy-panel .btns {
+            height: 30px;
+            line-height: 30px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .zsdk-panel .query, .yebz-panel .query, .gydk-panel .query, .gyqy-panel .query {
+            margin: 0 10px 0 40px;
+            display: inline-block;
+            width: 80px;
+            background: #0092DA;
+            border-radius: 15px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .zsdk-panel .query-results-btn, .yebz-panel .query-results-btn, .gydk-panel .query-results-btn, .gyqy-panel .query-results-btn, .query-result .query-results-btn {
+            float: right;
+            height: 30px;
+            width: 30px;
+            font-weight: 700;
+            background: url(img/forward.png);
+            cursor: pointer;
+        }
+
+
+        .zsdk > div, .yebz > div, .gydk > div, .gyqy > div {
+            position: absolute;
+            box-sizing: border-box;
+            top: 0;
+            left: 0;
+            padding: 10px;
+            width: 100%;
+            z-index: -1;
+            height: 100%;
+            background: white;
+            opacity: 0;
+            transition: 0.4s ease-in-out;
+        }
+
+        .z1 {
+            z-index: 1 !important;
+            opacity: 1 !important;
+        }
+
+
+        .query-result-title {
+            position: relative;
+            height: 30px;
+            line-height: 30px;
+            margin: 20px 0 10px 0;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .query-result .query-results-btn {
+            position: absolute;
+            left: 10px;
+            background: url(img/forback.png);
+        }
+
+        .query-results-count {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            width: 60px;
+            background: #0092DA;
+            font-family: 'Times New Roman';
+        }
+
+        .query-results {
+            height: 300px;
+            padding-right: 10px;
+        }
+
+        .results-item {
+            height: 80px;
+            transition: 0.3s;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+            .results-item:hover {
+                box-shadow: rgba(0, 146, 218, 0.20) 300px 0 inset;
+            }
+
+                .results-item:hover .result-item-title {
+                    background: url(img/result-guide-hover.png) no-repeat;
+                    background-position: 5px 10px;
+                }
+
+                .results-item:hover .result-item-slider {
+                    border-color: #FFA500;
+                }
+
+                .results-item:hover .result-item-content {
+                    background: url(img/local-hover.png) no-repeat;
+                    background-position: 240px 0;
+                }
+
+        .result-item-title {
+            background: url(img/result-guide.png) no-repeat;
+            background-position: 5px 10px;
+            height: 30px;
+            line-height: 30px;
+            text-indent: 20px;
+        }
+
+        .result-item-slider {
+            border-top: 1px #0092DA solid;
+            margin: 3px 0;
+        }
+
+        .result-item-content {
+            height: 50px;
+            font-size: 14px;
+            color: #666;
+            padding-left: 30px;
+            background: url(img/local.png) no-repeat;
+            background-position: 240px 0;
+        }
+
+        .dlfx-panel .btns, .ghfx-panel .btns {
+            height: 30px;
+            line-height: 30px;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+            .dlfx-panel .btns > div, .ghfx-panel .btns > div {
+                display: inline-block;
+                height: 30px;
+                line-height: 30px;
+                width: 60px;
+                background: #0092DA;
+                border-radius: 15px;
+                color: white;
+                cursor: pointer;
+            }
+
+        .dlfx-result, .ghfx-result {
+            padding-left: 30px;
+        }
+
+            .ghfx-result > div {
+                margin: 3px 0;
+                text-indent: 40px;
+                padding: 10px 0;
+            }
+
+            .ghfx-result .total {
+                text-indent: 0;
+                font-weight: 700;
+            }
+
+            .dlfx-result > div {
+                margin: 10px 0;
+            }
+
+            .dlfx-result .zmj {
+                font-weight: 700;
+            }
+
+            .dlfx-result .jsyd, .dlfx-result .nyd, .dlfx-result .wlyd {
+                font-size: 16px;
+                text-indent: 40px;
+            }
+
+            .dlfx-result .gd {
+                font-size: 15px;
+                text-indent: 80px;
+            }
+    </style>
+    <script>
+        var qyConfig = {
+            xzq: [
+                {
+                    type: 'XZQ',
+                    dm: '320292001',
+                    mc: '旺庄街道'
+                }, {
+                    type: 'XZQ',
+                    dm: '320292002',
+                    mc: '硕放街道'
+                }, {
+                    type: 'XZQ',
+                    dm: '320292003',
+                    mc: '江溪街道'
+                }, {
+                    type: 'XZQ',
+                    dm: '320292004',
+                    mc: '新安街道'
+                }, {
+                    type: 'XZQ',
+                    dm: '320292005',
+                    mc: '梅村街道'
+                }, {
+                    type: 'XZQ',
+                    dm: '320292006',
+                    mc: '鸿山街道'
+                }
+            ],
+            pq: [
+                {
+                    type: 'PQ',
+                    dm: 'PQ01',
+                    mc: '板块1'
+                }, {
+                    type: 'PQ',
+                    dm: 'PQ02',
+                    mc: '板块2'
+                }, {
+                    type: 'PQ',
+                    dm: 'PQ03',
+                    mc: '板块3'
+                }, {
+                    type: 'PQ',
+                    dm: 'PQ04',
+                    mc: '板块4'
+                }, {
+                    type: 'PQ',
+                    dm: 'PQ05',
+                    mc: '板块5'
+                }, {
+                    type: 'PQ',
+                    dm: 'PQ06',
+                    mc: '板块6'
+                }]
+        };
+        $(function () {
+            var lengthUnits = [
+                {
+                    id: 'esriMeters',
+                    name: '米'
+                },
+                {
+                    id: 'esriKilometers',
+                    name: '千米'
+                }
+            ];
+            var areaUnits = [
+                {
+                    id: 'esriSquareMeters',
+                    name: '平方米'
+                }, {
+                    id: 'esriSquareKilometers',
+                    name: '平方千米'
+                }, {
+                    id: 'esriSquareKilometers',
+                    multiply: 1500,
+                    name: '亩'
+                }, {
+                    id: 'esriSquareKilometers',
+                    name: '公顷',
+                    multiply: 100
+                }];
+            var dropDown = $('.measure-panel .dropdown');
+            dropDown.click(function () {
+                var $this = $(this);
+                $this.find('.units-dropdown').slideToggle(200);
+            });
+            var $unitsDropDown = $('.measure-panel .dropdown .units-dropdown');
+            var lDropDown = $unitsDropDown.first();
+            for (var i = 0; i < lengthUnits.length; i++) {
+                var config = lengthUnits[i];
+                var $li = $('<li>' + config.name + '</li>');
+                $li.data('config', config);
+                $li.appendTo(lDropDown);
+            }
+            var aDropDown = $unitsDropDown.last();
+            for (var i = 0; i < areaUnits.length; i++) {
+                var config = areaUnits[i];
+                var $li = $('<li>' + config.name + '</li>');
+                $li.data('config', config);
+                $li.appendTo(aDropDown);
+            }
+            dropDown.find('li').click(function () {
+                var $this = $(this);
+                var config = $this.data('config');
+                var txt = $this.html();
+                $this.parent().parent().find('.units-text').html(txt).data('config', config);
+            });
+        });
+
+        $(function () {
+            var pqs = [{
+                dm: '-1',
+                mc: '全部'
+            }].concat(qyConfig.pq);
+
+            var $pqDropDown = $('.zsdk-panel .dropdown');
+            $('.zsdk .query-results-btn').click(function () {
+                $('.zsdk div').toggleClass('z1');
+            });
+            var $pqDown = $pqDropDown.find('ul');
+            for (var i = 0; i < pqs.length ; i++) {
+                var region = pqs[i];
+                var $li = $('<li>' + region.mc + '</li>');
+                $li.data('region', region);
+                $li.appendTo($pqDown);
+            }
+            $pqDropDown.find('li').click(function () {
+                var $this = $(this);
+                var region = $this.data('region');
+                var txt = region.mc;
+                $this.parent().parent().find('.pq-text').html(txt).data('region', region);
+            });
+            $pqDropDown.find('li').first().click();
+            $pqDropDown.click(function () {
+                var $this = $(this);
+                $this.find('.pq-dropdown').slideToggle(200);
+            });
+        });
+
+        $(function () {
+            var pqs = [{
+                dm: '-1',
+                mc: '全部'
+            }].concat(qyConfig.pq);
+
+            var $pqDropDown = $('.yebz-panel .dropdown');
+            $('.yebz .query-results-btn').click(function () {
+                $('.yebz div').toggleClass('z1');
+            });
+            var $pqDown = $pqDropDown.find('ul');
+            for (var i = 0; i < pqs.length ; i++) {
+                var region = pqs[i];
+                var $li = $('<li>' + region.mc + '</li>');
+                $li.data('region', region);
+                $li.appendTo($pqDown);
+            }
+            $pqDropDown.find('li').click(function () {
+                var $this = $(this);
+                var region = $this.data('region');
+                var txt = region.mc;
+                $this.parent().parent().find('.pq-text').html(txt).data('region', region);
+            });
+            $pqDropDown.find('li').first().click();
+            $pqDropDown.click(function () {
+                var $this = $(this);
+                $this.find('.pq-dropdown').slideToggle(200);
+            });
+        });
+
+        $(function () {
+            var pqs = [{
+                dm: '-1',
+                mc: '全部'
+            }].concat(qyConfig.pq);
+            pqs.concat(qyConfig.pq);
+            var $pqDropDown = $('.gydk-panel .dropdown');
+            $('.gydk .query-results-btn').click(function () {
+                $('.gydk div').toggleClass('z1');
+            });
+            var $pqDown = $pqDropDown.find('ul');
+            for (var i = 0; i < pqs.length ; i++) {
+                var region = pqs[i];
+                var $li = $('<li>' + region.mc + '</li>');
+                $li.data('region', region);
+                $li.appendTo($pqDown);
+            }
+            $pqDropDown.find('li').click(function () {
+                var $this = $(this);
+                var region = $this.data('region');
+                var txt = region.mc;
+                $this.parent().parent().find('.pq-text').html(txt).data('region', region);
+            });
+            $pqDropDown.find('li').first().click();
+            $pqDropDown.click(function () {
+                var $this = $(this);
+                $this.find('.pq-dropdown').slideToggle(200);
+            });
+        });
+
+        $(function () {
+            $('.gyqy .query-results-btn').click(function () {
+                $('.gyqy div').toggleClass('z1');
+            });
+        });
+
+
+        $(function () {
+            var areaUnits = [
+                {
+                    id: 'esriSquareMeters',
+                    name: '平方米'
+                }, {
+                    id: 'esriSquareKilometers',
+                    name: '平方千米'
+                }, {
+                    id: 'esriSquareKilometers',
+                    multiply: 1500,
+                    name: '亩'
+                }, {
+                    id: 'esriSquareKilometers',
+                    name: '公顷',
+                    multiply: 100
+                }];
+            var dropDown = $('.dlfx-panel .dropdown');
+            dropDown.click(function () {
+                var $this = $(this);
+                $this.find('.units-dropdown').slideToggle(200);
+            });
+            var $unitsDropDown = $('.dlfx-panel .dropdown .units-dropdown');
+
+            var aDropDown = $unitsDropDown.first();
+            for (var i = 0; i < areaUnits.length; i++) {
+                var config = areaUnits[i];
+                var $li = $('<li>' + config.name + '</li>');
+                $li.data('config', config);
+                $li.appendTo(aDropDown);
+            }
+            dropDown.find('li').click(function () {
+                var $this = $(this);
+                var config = $this.data('config');
+                var txt = $this.html();
+                $this.parent().parent().find('.units-text').html(txt).data('config', config);
+            });
+        });
+
+        $(function () {
+            var areaUnits = [
+                {
+                    id: 'esriSquareMeters',
+                    name: '平方米'
+                }, {
+                    id: 'esriSquareKilometers',
+                    name: '平方千米'
+                }, {
+                    id: 'esriSquareKilometers',
+                    multiply: 1500,
+                    name: '亩'
+                }, {
+                    id: 'esriSquareKilometers',
+                    name: '公顷',
+                    multiply: 100
+                }];
+            var dropDown = $('.ghfx-panel .dropdown');
+            dropDown.click(function () {
+                var $this = $(this);
+                $this.find('.units-dropdown').slideToggle(200);
+            });
+            var $unitsDropDown = $('.ghfx-panel .dropdown .units-dropdown');
+
+            var aDropDown = $unitsDropDown.first();
+            for (var i = 0; i < areaUnits.length; i++) {
+                var config = areaUnits[i];
+                var $li = $('<li>' + config.name + '</li>');
+                $li.data('config', config);
+                $li.appendTo(aDropDown);
+            }
+            dropDown.find('li').click(function () {
+                var $this = $(this);
+                var config = $this.data('config');
+                var txt = $this.html();
+                $this.parent().parent().find('.units-text').html(txt).data('config', config);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="test">
+        <div class="measure-panel app-item">
+            <div class="measure-setting">
+                <div class="length-setting" style="z-index: 9;">
+                    <div>长度单位：</div>
+                    <div class="dropdown">
+                        <div class="units-text">米</div>
+                        <ul class="units-dropdown">
+                        </ul>
+                    </div>
+                </div>
+                <div class="area-setting">
+                    <div>面积单位：</div>
+                    <div class="dropdown">
+                        <div class="units-text">平方米</div>
+                        <ul class="units-dropdown">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="app-slider"></div>
+            <div class="measure-tools">
+                <div class="measure-tools-line" data-tip="长度量算"></div>
+                <div class="measure-tools-polygon" data-tip="面积量算"></div>
+                <div class="measure-tools-drop" data-tip="清除结果"></div>
+            </div>
+            <div class="app-slider"></div>
+            <div class="measure-results">
+                长度：999米
+                <br />
+                面积：6000亩
+            </div>
+        </div>
+    </div>
+
+    <div class="test">
+        <div class="zsdk app-item">
+            <div class="zsdk-panel z1">
+                <table>
+                    <tr>
+                        <td>项目名称：</td>
+                        <td>
+                            <input type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>土地坐落：</td>
+                        <td>
+                            <input type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>地块面积：</td>
+                        <td>
+                            <input type="text" style="width: 40px" />
+                            亩-
+                        <input type="text" style="width: 40px" />
+                            亩
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>所属板块：</td>
+                        <td>
+                            <div class="dropdown">
+                                <div class="pq-text"></div>
+                                <ul class="pq-dropdown">
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="btns">
+                    <div class="query">查 询</div>
+                    <div class="query-results-btn" data-tip="查看查询结果"></div>
+                </div>
+                <div class="app-slider"></div>
+                <div class="query-tools">
+                    <div class="query-tools-point" data-tip="点查询"></div>
+                    <div class="query-tools-polygon" data-tip="多边形查询"></div>
+                    <div class="query-tools-drop" data-tip="清除图形"></div>
+                </div>
+            </div>
+            <div class="query-result">
+                <div class="query-result-title">
+                    <div class="query-results-btn"></div>
+                    查询结果
+                <div class="query-results-count">999</div>
+                </div>
+                <div class="app-slider"></div>
+                <div class="query-results">
+                    <div class="results-item">
+                        <div class="result-item-title">地块名称1</div>
+                        <div class="result-item-slider"></div>
+                        <div class="result-item-content">
+                            地块面积：999亩<br />
+                            土地坐落：无锡市XX区XX地
+                        </div>
+                    </div>
+                    <div class="results-item">
+                        <div class="result-item-title">地块名称1</div>
+                        <div class="result-item-slider"></div>
+                        <div class="result-item-content">
+                            地块面积：999亩<br />
+                            土地坐落：无锡市XX区XX地
+                        </div>
+                    </div>
+                    <div class="results-item">
+                        <div class="result-item-title">地块名称1</div>
+                        <div class="result-item-slider"></div>
+                        <div class="result-item-content">
+                            地块面积：999亩<br />
+                            土地坐落：无锡市XX区XX地
+                        </div>
+                    </div>
+                    <div class="results-item">
+                        <div class="result-item-title">地块名称1</div>
+                        <div class="result-item-slider"></div>
+                        <div class="result-item-content">
+                            地块面积：999亩<br />
+                            土地坐落：无锡市XX区XX地
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="test">
+        <div class="yebz app-item">
+            <div class="yebz-panel z1">
+                <table>
+                    <tr>
+                        <td>用地单位：</td>
+                        <td>
+                            <input type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>土地坐落：</td>
+                        <td>
+                            <input type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>地块面积：</td>
+                        <td>
+                            <input type="text" style="width: 40px" />
+                            亩-
+                        <input type="text" style="width: 40px" />
+                            亩
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>所属板块：</td>
+                        <td>
+                            <div class="dropdown">
+                                <div class="pq-text"></div>
+                                <ul class="pq-dropdown">
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="btns">
+                    <div class="query">查 询</div>
+                    <div class="query-results-btn" data-tip="查看查询结果"></div>
+                </div>
+                <div class="app-slider"></div>
+                <div class="query-tools">
+                    <div class="query-tools-point" data-tip="点查询"></div>
+                    <div class="query-tools-polygon" data-tip="多边形查询"></div>
+                    <div class="query-tools-drop" data-tip="清除图形"></div>
+                </div>
+            </div>
+            <div class="query-result">
+                <div class="query-result-title">
+                    <div class="query-results-btn"></div>
+                    查询结果
+                <div class="query-results-count">999</div>
+                </div>
+                <div class="app-slider"></div>
+                <div class="query-results">
+                    <div class="results-item">
+                        <div class="result-item-title">地块名称1</div>
+                        <div class="result-item-slider"></div>
+                        <div class="result-item-content">
+                            地块面积：999亩<br />
+                            土地坐落：无锡市XX区XX地
+                        </div>
+                    </div>
+                    <div class="results-item">
+                        <div class="result-item-title">地块名称1</div>
+                        <div class="result-item-slider"></div>
+                        <div class="result-item-content">
+                            地块面积：999亩<br />
+                            土地坐落：无锡市XX区XX地
+                        </div>
+                    </div>
+                    <div class="results-item">
+                        <div class="result-item-title">地块名称1</div>
+                        <div class="result-item-slider"></div>
+                        <div class="result-item-content">
+                            地块面积：999亩<br />
+                            土地坐落：无锡市XX区XX地
+                        </div>
+                    </div>
+                    <div class="results-item">
+                        <div class="result-item-title">地块名称1</div>
+                        <div class="result-item-slider"></div>
+                        <div class="result-item-content">
+                            地块面积：999亩<br />
+                            土地坐落：无锡市XX区XX地
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="test">
+        <div class="gydk app-item">
+            <div class="gydk-panel z1">
+                <table>
+                    <tr>
+                        <td>地块编号：</td>
+                        <td>
+                            <input type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>土地坐落：</td>
+                        <td>
+                            <input type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>地块面积：</td>
+                        <td>
+                            <input type="text" style="width: 40px" />
+                            亩-
+                        <input type="text" style="width: 40px" />
+                            亩
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>所属板块：</td>
+                        <td>
+                            <div class="dropdown">
+                                <div class="pq-text"></div>
+                                <ul class="pq-dropdown">
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="btns">
+                    <div class="query">查 询</div>
+                    <div class="query-results-btn" data-tip="查看查询结果"></div>
+                </div>
+                <div class="app-slider"></div>
+                <div class="query-tools">
+                    <div class="query-tools-point" data-tip="点查询"></div>
+                    <div class="query-tools-polygon" data-tip="多边形查询"></div>
+                    <div class="query-tools-drop" data-tip="清除图形"></div>
+                </div>
+            </div>
+            <div class="query-result">
+                <div class="query-result-title">
+                    <div class="query-results-btn"></div>
+                    查询结果
+                <div class="query-results-count">999</div>
+                </div>
+                <div class="app-slider"></div>
+                <div class="query-results">
+                    <div class="results-item">
+                        <div class="result-item-title">地块名称1</div>
+                        <div class="result-item-slider"></div>
+                        <div class="result-item-content">
+                            地块面积：999亩<br />
+                            土地坐落：无锡市XX区XX地
+                        </div>
+                    </div>
+                    <div class="results-item">
+                        <div class="result-item-title">地块名称1</div>
+                        <div class="result-item-slider"></div>
+                        <div class="result-item-content">
+                            地块面积：999亩<br />
+                            土地坐落：无锡市XX区XX地
+                        </div>
+                    </div>
+                    <div class="results-item">
+                        <div class="result-item-title">地块名称1</div>
+                        <div class="result-item-slider"></div>
+                        <div class="result-item-content">
+                            地块面积：999亩<br />
+                            土地坐落：无锡市XX区XX地
+                        </div>
+                    </div>
+                    <div class="results-item">
+                        <div class="result-item-title">地块名称1</div>
+                        <div class="result-item-slider"></div>
+                        <div class="result-item-content">
+                            地块面积：999亩<br />
+                            土地坐落：无锡市XX区XX地
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="test">
+        <div class="gyqy app-item">
+            <div class="gyqy-panel z1">
+                <table>
+                    <tr>
+                        <td>单位名称：</td>
+                        <td>
+                            <input type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>土地坐落：</td>
+                        <td>
+                            <input type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>地块面积：</td>
+                        <td>
+                            <input type="text" style="width: 40px" />
+                            亩-
+                        <input type="text" style="width: 40px" />
+                            亩
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>营业收入：</td>
+                        <td>
+                            <input type="text" style="width: 40px" />
+                            万-
+                        <input type="text" style="width: 40px" />
+                            万
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>上缴税金：</td>
+                        <td>
+                            <input type="text" style="width: 40px" />
+                            万-
+                        <input type="text" style="width: 40px" />
+                            万
+                        </td>
+                    </tr>
+                </table>
+                <div class="btns">
+                    <div class="query">查 询</div>
+                    <div class="query-results-btn" data-tip="查看查询结果"></div>
+                </div>
+                <div class="app-slider"></div>
+                <div class="query-tools">
+                    <div class="query-tools-point" data-tip="点查询"></div>
+                    <div class="query-tools-polygon" data-tip="多边形查询"></div>
+                    <div class="query-tools-drop" data-tip="清除图形"></div>
+                </div>
+            </div>
+            <div class="query-result">
+                <div class="query-result-title">
+                    <div class="query-results-btn"></div>
+                    查询结果
+                <div class="query-results-count">999</div>
+                </div>
+                <div class="app-slider"></div>
+                <div class="query-results">
+                    <div class="results-item">
+                        <div class="result-item-title">地块名称1</div>
+                        <div class="result-item-slider"></div>
+                        <div class="result-item-content">
+                            地块面积：999亩<br />
+                            土地坐落：无锡市XX区XX地
+                        </div>
+                    </div>
+                    <div class="results-item">
+                        <div class="result-item-title">地块名称1</div>
+                        <div class="result-item-slider"></div>
+                        <div class="result-item-content">
+                            地块面积：999亩<br />
+                            土地坐落：无锡市XX区XX地
+                        </div>
+                    </div>
+                    <div class="results-item">
+                        <div class="result-item-title">地块名称1</div>
+                        <div class="result-item-slider"></div>
+                        <div class="result-item-content">
+                            地块面积：999亩<br />
+                            土地坐落：无锡市XX区XX地
+                        </div>
+                    </div>
+                    <div class="results-item">
+                        <div class="result-item-title">地块名称1</div>
+                        <div class="result-item-slider"></div>
+                        <div class="result-item-content">
+                            地块面积：999亩<br />
+                            土地坐落：无锡市XX区XX地
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="test">
+        <div class="dlfx-panel app-item">
+            <div class="measure-setting">
+                <div class="area-setting">
+                    <div>面积单位：</div>
+                    <div class="dropdown">
+                        <div class="units-text">平方米</div>
+                        <ul class="units-dropdown">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="app-slider"></div>
+            <div class="btns">
+                <div>手绘</div>
+                <div>导入</div>
+                <div>清除</div>
+            </div>
+            <div class="btns">
+                <div>分析</div>
+            </div>
+            <div class="app-slider"></div>
+            <div class="dlfx-result">
+                <div class='zmj'>总面积：999亩</div>
+                <div class='jsyd'>建设用地：999亩</div>
+                <div class='nyd'>农 用 地：999亩</div>
+                <div class='gd'>耕地：999亩</div>
+                <div class='wlyd'>未利用地：999亩</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="test">
+        <div class="ghfx-panel app-item">
+            <div class="measure-setting">
+                <div class="area-setting">
+                    <div>面积单位：</div>
+                    <div class="dropdown">
+                        <div class="units-text">平方米</div>
+                        <ul class="units-dropdown">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="app-slider"></div>
+            <div class="btns">
+                <div>手绘</div>
+                <div>导入</div>
+                <div>清除</div>
+            </div>
+            <div class="btns">
+                <div>分析</div>
+            </div>
+            <div class="app-slider"></div>
+            <div class="ghfx-result">
+                <div class='total'>总面积：500亩 符合规划！</div>
+                <div class='yxjsq'>允许建设区：500亩</div>
+                <div class='ytjjsq'>有条件建设区：0亩</div>
+                <div class='xzjsq'>限制建设区：0亩</div>
+                <div class='jzjsq'>禁止建设区：0亩</div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .btn-switch {
+            background: white;
+            position: absolute;
+            top: 13px;
+            right: 20px;
+            height: 30px;
+            line-height: 30px;
+            width: 80px;
+            border: 2px #0092DA solid;
+            border-radius: 20px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .btn-switch-container {
+            position: absolute;
+            left: 0;
+            width: 130px;
+            height: 100%;
+            transition: all 0.3s ease-in-out;
+        }
+
+            .btn-switch-container > div {
+                line-height: 30px;
+                height: 100%;
+            }
+
+        .btn-switch-open, .btn-switch-close {
+            float: left;
+            width: 50px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .btn-switch-open {
+            color: #0092DA;
+        }
+
+        .btn-switch-close {
+            color: rgba(226, 53, 53, 1);
+        }
+
+        .btn-switch-img {
+            width: 30px;
+            float: left;
+            border-radius: 20px;
+            background: #0092DA;
+        }
+
+        .btn-switch-off {
+            border-color: rgba(226, 53, 53, 1);
+        }
+
+            .btn-switch-off .btn-switch-img {
+                background-color: rgba(226, 53, 53, 1);
+            }
+
+            .btn-switch-off .btn-switch-container {
+                left: -50px;
+            }
+    </style>
+    <script>
+        $(function () {
+            bOn = true;
+            $('.btn-switch').click(function () {
+                var $this = $(this);
+                $this.toggleClass('btn-switch-off');
+                bOn = !bOn;
+                console.log(bOn);
+            });
+        });
+    </script>
+    <div class="app-item">
+        <div class="app-slider"></div>
+        <div class="btn-switch">
+            <div class="btn-switch-container">
+                <div class="btn-switch-open">开</div>
+                <div class="btn-switch-img"></div>
+                <div class="btn-switch-close">关</div>
+            </div>
+        </div>
+        <div class="i-results">
+            <ul id="r-tree" class="ztree"></ul>
+        </div>
+    </div>
+</body>
+</html>

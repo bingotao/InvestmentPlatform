@@ -1,0 +1,1 @@
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.InvestmentPlatform.Web\obj\x86\Release\Auroratech.InvestmentPlatform.Web.csprojResolveAssemblyReference.cache

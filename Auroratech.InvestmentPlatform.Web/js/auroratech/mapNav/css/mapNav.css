@@ -1,0 +1,304 @@
+﻿.ct-map-nav .slider-disabled {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.ct-map-nav .slider-h {
+    height: 22px;
+}
+
+.ct-map-nav .slider-v {
+    width: 22px;
+}
+
+.ct-map-nav .slider-inner {
+    position: relative;
+    height: 6px;
+    top: 7px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0px;
+}
+
+.ct-map-nav .slider-handle {
+    position: absolute;
+    display: block;
+    outline: none;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+}
+
+.ct-map-nav .slider-tip {
+    position: absolute;
+    display: inline-block;
+    line-height: 12px;
+    font-size: 12px;
+    white-space: nowrap;
+    top: -22px;
+}
+
+.ct-map-nav .slider-rule {
+    position: relative;
+    top: 15px;
+}
+
+    .ct-map-nav .slider-rule span {
+        position: absolute;
+        display: inline-block;
+        font-size: 0;
+        height: 5px;
+        border-width: 0 0 0 1px;
+        border-style: solid;
+    }
+
+.ct-map-nav .slider-rulelabel {
+    position: relative;
+    top: 20px;
+}
+
+    .ct-map-nav .slider-rulelabel span {
+        position: absolute;
+        display: inline-block;
+        font-size: 12px;
+    }
+
+.ct-map-nav .slider-v .slider-inner {
+    width: 6px;
+    left: 7px;
+    top: 0;
+    float: left;
+}
+
+.ct-map-nav .slider-v .slider-handle {
+    left: 50%;
+    margin-top: -10px;
+}
+
+.ct-map-nav .slider-v .slider-tip {
+    left: -10px;
+    margin-top: -6px;
+}
+
+.ct-map-nav .slider-v .slider-rule {
+    float: left;
+    top: 0;
+    left: 16px;
+}
+
+    .ct-map-nav .slider-v .slider-rule span {
+        width: 5px;
+        height: auto;
+        border-left: 0;
+        border-width: 1px 0 0 0;
+        border-style: solid;
+    }
+
+.ct-map-nav .slider-v .slider-rulelabel {
+    float: left;
+    top: 0;
+    left: 23px;
+}
+
+.ct-map-nav .slider-handle {
+    background: url(img/nav-panel.png) -71px -69px no-repeat;
+}
+
+.ct-map-nav .slider-inner {
+    border-color: #ddd;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.ct-map-nav .slider-rule span {
+    border-color: #aaa;
+}
+
+.ct-map-nav .slider-rulelabel span {
+    color: #444;
+    display: block;
+    opacity: 0;
+    transition: 0.2s ease-in;
+    transition-delay: 0.2s;
+}
+
+.ct-map-nav .slider-rulelabel span { /*display: none;*/
+    height: 20px;
+    line-height: 20px;
+    min-width: 45px;
+    width: auto;
+    text-indent: 10px;
+    cursor: pointer;
+    padding-left: 5px;
+    background: url(img/nav-panel.png) -5px -2px no-repeat;
+    color: white;
+}
+
+.ct-map-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    height: auto;
+    width: auto;
+    opacity: 0.7;
+    transition: 0.2s ease-in;
+}
+
+    .ct-map-nav:hover {
+        opacity: 0.9;
+    }
+
+.ct-map-nav-navpanel {
+    position: relative;
+    height: 61px;
+    width: 61px;
+    border-radius: 50%;
+    background-color: rgba(130, 130, 130, 0.5);
+}
+
+    .ct-map-nav-navpanel div {
+        position: absolute;
+        cursor: pointer;
+    }
+
+.ct-map-navpanel-up {
+    top: 3px;
+    left: 50%;
+    margin-left: -8px;
+    height: 11px;
+    width: 17px;
+    background: url(img/nav-panel.png)-65px -49px no-repeat;
+}
+
+    .ct-map-navpanel-up:hover {
+        background: url(img/nav-panel.png)-25px -49px no-repeat;
+    }
+
+.ct-map-navpanel-down {
+    bottom: 2px;
+    left: 50%;
+    margin-left: -8px;
+    height: 11px;
+    width: 17px;
+    background: url(img/nav-panel.png)-45px -49px no-repeat;
+}
+
+    .ct-map-navpanel-down:hover {
+        background: url(img/nav-panel.png)-4px -49px no-repeat;
+    }
+
+.ct-map-navpanel-right {
+    right: 2px;
+    top: 50%;
+    margin-top: -8px;
+    height: 17px;
+    width: 11px;
+    background: url(img/nav-panel.png)-70px -28px no-repeat;
+}
+
+    .ct-map-navpanel-right:hover {
+        background: url(img/nav-panel.png)-28px -28px no-repeat;
+    }
+
+.ct-map-navpanel-left {
+    left: 3px;
+    top: 50%;
+    margin-top: -8px;
+    height: 17px;
+    width: 11px;
+    background: url(img/nav-panel.png)-47px -28px no-repeat;
+}
+
+    .ct-map-navpanel-left:hover {
+        background: url(img/nav-panel.png)-5px -28px no-repeat;
+    }
+
+.ct-map-navpanel-center {
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    left: 50%;
+    top: 50%;
+    margin-left: -15px;
+    margin-top: -15px;
+    border: 3px #333 solid;
+    border-radius: 50%;
+    background: url(img/nav-panel.png) -94px -33px no-repeat;
+}
+
+    .ct-map-navpanel-center:hover {
+        border-color: #ff6a00;
+    }
+
+.ct-map-nav-extent {
+    position: relative;
+    width: 41px;
+    border-radius: 5px;
+    margin-left: 11px;
+    margin-top: 3px;
+    height: 20px;
+    background-color: rgba(130, 130, 130, 0.5);
+}
+
+    .ct-map-nav-extent div {
+        position: absolute;
+        top: 2px;
+        height: 17px;
+        width: 11px;
+        cursor: pointer;
+    }
+
+.ct-map-nav-extent-next {
+    right: 5px;
+    background: url(img/nav-panel.png)-70px -28px no-repeat;
+}
+
+    .ct-map-nav-extent-next:hover {
+        background: url(img/nav-panel.png)-28px -28px no-repeat;
+    }
+
+.ct-map-nav-extent-pre {
+    left: 5px;
+    background: url(img/nav-panel.png)-47px -28px no-repeat;
+}
+
+    .ct-map-nav-extent-pre:hover {
+        background: url(img/nav-panel.png)-5px -28px no-repeat;
+    }
+
+.ct-map-nav-levelcontrol {
+    position: relative;
+    margin-top: 3px;
+    left: 21px;
+    height: auto;
+    width: 20px;
+    background-color: rgba(130, 130, 130, 0.5);
+    border-radius: 5px;
+}
+
+.ct-map-nav-levelcontrol-zoomin {
+    width: 20px;
+    height: 20px;
+    background: url(img/nav-panel.png) -10px -68px no-repeat;
+    cursor: pointer;
+}
+
+.ct-map-nav-levelcontrol-zoomout {
+    width: 20px;
+    height: 20px;
+    background: url(img/nav-panel.png)-38px -68px no-repeat;
+    cursor: pointer;
+}
+
+.ct-map-nav-levcontrol-container {
+    padding: 5px 0;
+    margin-left: -1px;
+    height: 100px;
+}
+
+.ct-map-nav-levelcontrol:hover .slider-rulelabel span {
+    opacity: 1;
+}

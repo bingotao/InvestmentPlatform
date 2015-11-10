@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: C:\Users\Administrator\Desktop\Walkinfo.DataClient.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CD385DB-B2CB-4774-B0EE-EC38920E9E01}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Auroratech.DataClient</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>Auroratech.DataClient</RootNamespace>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>发布\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\bin\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IBaseOperator.cs" />
+    <Compile Include="IDbGUIDOperator.cs" />
+    <Compile Include="IDbProvider.cs" />
+    <Compile Include="IOLEDBSqlFactory.cs" />
+    <Compile Include="IOracleDbSqlFactory.cs" />
+    <Compile Include="ISQLServerDbSqlFactory.cs" />
+    <Compile Include="OLEDBBaseHelper.cs" />
+    <Compile Include="OLEDBContext.cs" />
+    <Compile Include="OLEDBProvider.cs" />
+    <Compile Include="OLEDBSqlFactory.cs" />
+    <Compile Include="OracleBaseHelper.cs" />
+    <Compile Include="OracleContext.cs" />
+    <Compile Include="OracleProvider.cs" />
+    <Compile Include="OracleSqlFactory.cs" />
+    <Compile Include="SQLServerBaseHelper.cs" />
+    <Compile Include="SQLServerContext.cs" />
+    <Compile Include="SQLServerProvider.cs" />
+    <Compile Include="SQLServerSqlFactory.cs" />
+    <Compile Include="DataExtension.cs" />
+    <Compile Include="EntityFactory.cs" />
+    <Compile Include="TableInfoDictionary.cs" />
+    <Compile Include="IEntity.cs" />
+    <Compile Include="TableInfo.cs" />
+    <Compile Include="TableInfoHelper.cs" />
+    <Compile Include="IDALDBOperator.cs" />
+    <Compile Include="ColumnAttribute.cs" />
+    <Compile Include="ConditionComponent.cs" />
+    <Compile Include="CM.cs" />
+    <Compile Include="Converage.cs" />
+    <Compile Include="OLEDBDataType.cs" />
+    <Compile Include="OracleDataType.cs" />
+    <Compile Include="RelationAttribute.cs" />
+    <Compile Include="RelationsAttribute.cs" />
+    <Compile Include="SM.cs" />
+    <Compile Include="SearchComponent.cs" />
+    <Compile Include="SQLServerDataType.cs" />
+    <Compile Include="TableSchema.cs" />
+    <Compile Include="SQLConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

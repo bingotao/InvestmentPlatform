@@ -1,0 +1,8 @@
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.DataClient\bin\Debug\Auroratech.DataClient.dll
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.DataClient\bin\Debug\Auroratech.DataClient.pdb
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.InvestmentPlatform.Web\dll\Auroratech.DataClient.dll
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.InvestmentPlatform.Web\dll\Auroratech.DataClient.pdb
+C:\bin\Release\Auroratech.DataClient.dll
+C:\bin\Release\Auroratech.DataClient.pdb
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.DataClient\obj\Debug\Auroratech.DataClient.dll
+C:\code\Walkinfo.InvestmentPlatform\Walkinfo.InvestmentPlatform\Auroratech.DataClient\obj\Debug\Auroratech.DataClient.pdb
