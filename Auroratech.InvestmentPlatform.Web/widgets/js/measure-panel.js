@@ -13,7 +13,7 @@
     var aDropDown = $unitsDropDown.last();
     for (var i = 0; i < areaUnits.length; i++) {
         var config = areaUnits[i];
-        var $li = $('<li>' + config.name + '</li>');
+        var $li = $('<li>' + config.name + '</li>');  
         $li.data('config', config);
         $li.appendTo(aDropDown);
     }
